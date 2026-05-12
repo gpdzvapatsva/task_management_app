@@ -6,15 +6,13 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from .models import Cars, Mechanic, Task
 
-# Create your views here.
+'''======== Create your views here========='''
 def home(request):
     return render(request, 'home.html')
 
 
 
-# =========================
-# CAR VIEWS
-# =========================
+'''===========CAR VIEWS=============='''
 
 class CarListView(ListView):
     model = Cars
@@ -40,10 +38,8 @@ class CarDeleteView(DeleteView):
     template_name = 'cars/car_confirm_delete.html'
     success_url = reverse_lazy('car_list')
 
-# =========================
-# MECHANIC VIEWS
-# =========================
 
+'''========MECHANIC VIEWS======='''
 class MechanicListView(ListView):
     model = Mechanic
     template_name = 'mechanics/mechanic_list.html'
@@ -70,9 +66,7 @@ class MechanicDeleteView(DeleteView):
     success_url = reverse_lazy('mechanic_list')
 
 
-# =========================
-# TASK VIEWS
-# =========================
+'''==============TASK VIEWS=============='''
 
 class TaskListView(ListView):
     model = Task
